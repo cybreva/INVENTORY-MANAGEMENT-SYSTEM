@@ -53,3 +53,14 @@ CREATE TABLE IF NOT EXISTS purchases (
     FOREIGN KEY (supplier_id)
     REFERENCES suppliers(supplier_id)
 );
+
+CREATE TABLE IF NOT EXISTS sales (
+    sale_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    sale_price DECIMAL(10,2) NOT NULL,
+    sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (product_id)
+    REFERENCES products(product_id)
+);
